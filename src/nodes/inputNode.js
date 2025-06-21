@@ -1,47 +1,54 @@
 // inputNode.js
 
-import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
+import { Position } from 'reactflow';
+import { shallow } from 'zustand/shallow';
+import { useStore } from '../store';
+import { BaseNode } from './BaseNode';
+import './BaseNode.module.css';
+
+const selector = (state) => ({
+  updateNodeField: state.updateNodeField,
+});
 
 export const InputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
-  const [inputType, setInputType] = useState(data.inputType || 'Text');
-
-  const handleNameChange = (e) => {
-    setCurrName(e.target.value);
-  };
-
-  const handleTypeChange = (e) => {
-    setInputType(e.target.value);
-  };
+  const { updateNodeField } = useStore(selector, shallow);
 
   return (
-    <div style={{ width: 200, height: 80, border: '1px solid black' }}>
-      <div>
-        <span>Input</span>
-      </div>
-      <div>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={currName}
-            onChange={handleNameChange}
-          />
-        </label>
-        <label>
-          Type:
-          <select value={inputType} onChange={handleTypeChange}>
-            <option value="Text">Text</option>
-            <option value="File">File</option>
-          </select>
-        </label>
-      </div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id={`${id}-value`}
-      />
-    </div>
+    <BaseNode
+      title="Input"
+      fields={[
+        {
+          key: 'name',
+          label: 'Name:',
+          type: 'text',
+          value: data.inputName || '',
+          onChange: e => updateNodeField(id, 'inputName', e.target.value),
+        },
+        {
+          key: 'type',
+          label: 'Type:',
+          type: 'select',
+          value: data.inputType || 'Text',
+          onChange: e => updateNodeField(id, 'inputType', e.target.value),
+          options: [
+            { value: 'Text', label: 'Text' },
+            { value: 'File', label: 'File' },
+          ],
+        },
+      ]}
+      handles={[
+        {
+          type: 'source',
+          position: Position.Right,
+          id: `${id}-value`,
+        },
+      ]}
+      customContent={data.inputType === 'File' && (
+        <div style={{ marginTop: 8 }}>
+          <div className="fileRow">File</div>
+          <button className="uploadBtn">Upload file</button>
+        </div>
+      )}
+    />
   );
-}
+};

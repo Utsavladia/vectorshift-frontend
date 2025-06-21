@@ -1,10 +1,9 @@
 // submit.js
 
-export const SubmitButton = () => {
+import styles from './submit.module.css';
 
+export const SubmitButton = () => {
     return (
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <button type="submit">Submit</button>
-        </div>
+        <button type="submit" className={styles.ctaButton}>Submit</button>
     );
 }

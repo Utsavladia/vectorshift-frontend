@@ -1,10 +1,10 @@
 .nodeContainer {
-    width: 260px;
-    min-height: 120px;
-    background: linear-gradient(180deg, rgb(17, 5, 46) 0%, rgb(11, 4, 28) 100%);
+    width: 240px;
+    min-height: 100px;
+    background: linear-gradient(180deg, rgba(17, 5, 46, 0.8) 0%, rgba(11, 4, 28, 0.8) 100%);
     border-radius: 16px;
-    box-shadow: 0 4px 24px 0 rgba(58, 28, 113, 0.2);
-    border: 1px solid rgb(41, 6, 130);
+    box-shadow: 0 4px 24px 0 rgba(68, 31, 138, 0.352);
+    border: 1px solid rgb(61, 10, 143);
     color: #fff;
     padding: 0;
     display: flex;
@@ -16,8 +16,8 @@
 .nodeTitle {
     font-size: 1.1rem;
     font-weight: 500;
-    background: rgb(34, 6, 106);
-    color: #fff;
+    background: rgb(61, 10, 143);
+    color: rgb(198, 198, 198);
     padding: 14px 0 10px 18px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -28,7 +28,7 @@
 .nodeFields {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 4px;
     padding: 16px 12px 12px 12px;
 }
 
@@ -73,8 +73,8 @@
 
 .nodeField input,
 .nodeField select {
-    background: #2d1856;
-    color: #fff;
+    background: rgb(61, 10, 143);
+    color: white;
     border: none;
     border-radius: 8px;
     padding: 6px 8px;
@@ -89,7 +89,7 @@
 }
 
 .nodeTextarea {
-    background: #2d1856;
+    background: rgb(61, 10, 143);
     color: #fff;
     border: none;
     border-radius: 8px;

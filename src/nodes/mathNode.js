@@ -4,8 +4,8 @@ import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const MathNode = ({ id, data }) => {
-    const [a, setA] = useState(data?.a || 0);
-    const [b, setB] = useState(data?.b || 0);
+    const [a, setA] = useState(data?.a || '');
+    const [b, setB] = useState(data?.b || '');
     const [op, setOp] = useState(data?.op || '+');
 
     return (
@@ -14,21 +14,21 @@ export const MathNode = ({ id, data }) => {
             fields={[
                 {
                     key: 'a',
-                    label: 'A:',
+                    label: 'number a',
                     type: 'number',
                     value: a,
                     onChange: e => setA(Number(e.target.value)),
                 },
                 {
                     key: 'b',
-                    label: 'B:',
+                    label: 'number b',
                     type: 'number',
                     value: b,
                     onChange: e => setB(Number(e.target.value)),
                 },
                 {
                     key: 'op',
-                    label: 'Op:',
+                    label: 'operation',
                     type: 'select',
                     value: op,
                     onChange: e => setOp(e.target.value),

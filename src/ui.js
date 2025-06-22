@@ -19,7 +19,7 @@ import './index.css';
 
 import 'reactflow/dist/style.css';
 
-const gridSize = 20;
+const gridSize = 30;
 const proOptions = { hideAttribution: true };
 const nodeTypes = {
   customInput: InputNode,
@@ -83,8 +83,8 @@ export const PipelineUI = () => {
         }
 
         const position = reactFlowInstance.project({
-          x: event.clientX - reactFlowBounds.left,
-          y: event.clientY - reactFlowBounds.top,
+          x: event.clientX - reactFlowBounds.left - 40,
+          y: event.clientY - reactFlowBounds.top - 40,
         });
 
         const nodeID = getNodeID(type);
@@ -147,7 +147,13 @@ export const PipelineUI = () => {
         >
           <Background color="#aaa" gap={gridSize} />
           <Controls />
-          <MiniMap />
+          <MiniMap
+            maskColor="rgba(70, 31, 168, 0.5)"
+            nodeColor="rgba(70, 31, 168, 0.5)"
+            style={{
+              backgroundColor: 'black',
+            }}
+          />
         </ReactFlow>
       </div>
     </>

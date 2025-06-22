@@ -22,7 +22,7 @@
     inset: 0;
     border-radius: 999px;
     padding: 2px;
-    background: linear-gradient(90deg, rgb(55, 12, 165) 0%, #1a2250 35%, #556dd0 50%, #1a2250 65%, rgb(40, 9, 118) 100%);
+    background: linear-gradient(90deg, rgb(55, 12, 165) 0%, #1a2250 40%, #556dd0 50%, #1a2250 65%, rgb(79, 30, 205) 100%);
     background-size: 300% 100%;
     z-index: -1;
     transition: background-position 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s;

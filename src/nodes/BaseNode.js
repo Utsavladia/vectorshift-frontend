@@ -25,7 +25,7 @@ const TextareaField = ({ field }) => {
     return (
         <div className={styles.nodeField}>
             <label>
-                {field.label}
+                {/* {field.label} */}
                 <textarea
                     ref={textareaRef}
                     value={field.value}
@@ -59,7 +59,7 @@ export const BaseNode = ({
                         return (
                             <div className={styles.nodeField} key={i}>
                                 <label>
-                                    {field.label}
+                                    {/* {field.label} */}
                                     <select value={field.value} onChange={field.onChange} className={styles.nodeInput}>
                                         {field.options.map(opt => (
                                             <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -72,7 +72,7 @@ export const BaseNode = ({
                         return (
                             <div className={styles.nodeField} key={i}>
                                 <label>
-                                    {field.label}
+                                    {/* {field.label} */}
                                     <input type="checkbox" checked={field.value} onChange={field.onChange} className={styles.nodeInput} />
                                 </label>
                             </div>
@@ -84,8 +84,8 @@ export const BaseNode = ({
                         return (
                             <div className={styles.nodeField} key={i}>
                                 <label>
-                                    {field.label}
-                                    <input type={field.type} value={field.value} onChange={field.onChange} className={styles.nodeInput} />
+
+                                    <input type={field.type} placeholder={field.label} value={field.value} onChange={field.onChange} className={styles.nodeInput} />
                                 </label>
                             </div>
                         );
